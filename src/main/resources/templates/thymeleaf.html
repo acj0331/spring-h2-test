@@ -6,11 +6,11 @@
 <title>thymeleaf</title>
 <style>
 div.block {
-    margin-top: 50px;
+	margin-top: 50px;
 }
 
 div.block:nth-child(1) {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .red {
@@ -36,9 +36,11 @@ div.block:nth-child(1) {
 		<p class=title>value</p>
 		<p class="data" th:text="${key1}"></p>
 	</div>
+
 	<!-- list -->
 	<div class="block">
 		<p class=title>list</p>
+		<!-- loop -->
 		<p th:each="str:${strList}">
 			<span class="data" th:text="${str}"></span>
 		</p>
@@ -49,9 +51,11 @@ div.block:nth-child(1) {
 		<p class=title>map</p>
 		<p class=title>loop</p>
 		<p th:each="mapEntry:${strMap}" class="data">
-			<span th:text="${mapEntry.key}"></span> <span
+			<span th:text="${mapEntry.key}"></span>
+			<!-- conditional -->
+			<span
 				th:text="${mapEntry.value}"
-				th:class="${mapEntry.value} == val2 ? red : none"></span>
+				th:class="${mapEntry.value} == 'val2' ? red : none"></span>
 		</p>
 		<p class=title>get</p>
 		<p class="data" th:text="${strMap.get('key3')}"></p>

@@ -5,8 +5,27 @@
 <title>Index</title>
 <script type="text/javascript" src="/js/jquery-3.4.1.min.js" /></script>
 <link rel="stylesheet" href="/css/index.css" />
+<script>
+$(document).ready(function(){
+	$.ajax({
+		url:"/rest/userList",
+    type:'get',
+		success:function(data){
+			for(var i=0; i<data.length; i++){
+				//console.log(data[i].userId + " " + data[i].pwd);
+				$("table").append("<tr><td>"+data[i].userId+"</td><td>"+data[i].pwd+"</td></tr>");
+			}
+        }
+	});
+});
+</script>
 </head>
 <body>
-
+	<table>
+		<tr>
+			<th>userid</th>
+			<th>pwd</th>
+		</tr>
+	</table>
 </body>
 </html>
